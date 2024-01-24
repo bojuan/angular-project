@@ -1,0 +1,38 @@
+.button {
+  border: none;
+  color: white;
+  background-color: var(--black);
+  border-radius: 8px;
+  min-width: 150px;
+  height: 40px;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 12px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__label {
+    color: white;
+    font-size: 17px;
+    font-family: Lexend;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+
+  &--secondary {
+    color: var(--black);
+    background-color: white;
+  }
+
+  &--full {
+    width: -webkit-fill-available;
+  }
+}

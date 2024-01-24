@@ -1,0 +1,38 @@
+<div class="quantity">
+  <button class="quantity__button" (click)="decrement()">
+    <svg
+      class="quantity__svg"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 12h14"
+      />
+    </svg>
+  </button>
+
+  <input class="quantity__input" [(ngModel)]="value" type="number" />
+  <button class="quantity__button" (click)="increment()">
+    <svg
+      class="quantity__svg"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 12h14m-7 7V5"
+      />
+    </svg>
+  </button>
+</div>

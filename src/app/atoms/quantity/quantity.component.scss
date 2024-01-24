@@ -1,0 +1,35 @@
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  &__button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__svg {
+    width: 24px;
+    height: 24px;
+    color: var(--black);
+  }
+
+  &__input {
+    min-width: 12px;
+    width: 16px;
+    height: 28px;
+    border: 1px var(--gray) solid;
+    border-radius: 4px;
+    padding: 0px 16px;
+    text-align: center;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
