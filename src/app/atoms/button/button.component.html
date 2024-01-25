@@ -22,7 +22,10 @@
         d="M5 12h14m-7 7V5"
       />
     </svg>
-    <span class="button__label">
+    <span [ngClass]="{
+      'button__label': true,
+      'button__label--secondary': variant === 'secondary'
+    }">
       <ng-content></ng-content>
     </span>
   </span>

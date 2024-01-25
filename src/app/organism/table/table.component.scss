@@ -1,0 +1,13 @@
+.table {
+  &__header {
+    width: 152px;
+    color: #888888;
+    font-size: 14px;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+
+  &__column {
+    text-align: center;
+  }
+}

@@ -1,5 +1,7 @@
 .book-cover {
-  width: 140px;
-  height: 172px;
+  min-width: 120px;
+  min-height: 148px;
   border-radius: 10px;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }

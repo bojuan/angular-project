@@ -25,6 +25,10 @@
     font-family: Lexend;
     font-weight: 400;
     word-wrap: break-word;
+
+    &--secondary {
+      color: var(--black);
+    }
   }
 
   &--secondary {

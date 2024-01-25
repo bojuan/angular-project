@@ -1,0 +1,57 @@
+<section class="order-summary">
+  <h2 class="order-summary__title">Order Summary</h2>
+  <div class="order-summary__detail">
+    <div class="order-summary__costs">
+      <div class="order-summary__cost-item">
+        <span class="order-summary__param">Subtotal</span>
+        <span class="order-summary__value">$ 110.97</span>
+      </div>
+      <div class="order-summary__cost-item">
+        <span class="order-summary__param">Shipping</span>
+        <span class="order-summary__value">$ 110.97</span>
+      </div>
+      <div class="order-summary__cost-item">
+        <span class="order-summary__param">Code OFF5</span>
+        <span class="order-summary__value">$ 110.97</span>
+      </div>
+    </div>
+    <div class="order-summary__cost-item order-summary__cost-item--total">
+      <span class="order-summary__param order-summary__param--total"
+        >Order total</span
+      >
+      <span class="order-summary__value order-summary__value--total"
+        >$ 110.97</span
+      >
+    </div>
+  </div>
+  <div class="order-summary__promo-code">
+    <form class="order-summary__form">
+      <div class="order-summary__form-header">
+        <span class="order-summary__header-label">Promo Code</span>
+        <button class="order-summary__header-button">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 7.8v8.4M7.8 12h8.4m4.8 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="order-summary__form-input">
+        <input class="order-summary__input" type="text" />
+        <button class="order-summary__submit">APPLY</button>
+      </div>
+    </form>
+  </div>
+  <div class="order-summary__checkout">
+    <app-button [fullContent]="true" variant="secondary">CHECKOUT</app-button>
+  </div>
+</section>

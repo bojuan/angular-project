@@ -13,6 +13,9 @@ export class QuantityComponent {
   }
 
   decrement(){
-    this.value --
+    if(this.value > 0) {
+      this.value --
+    }
+   
   }
 }

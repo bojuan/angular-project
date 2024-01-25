@@ -1,0 +1,95 @@
+.order-summary {
+  &__title {
+    margin: 0;
+    margin-bottom: 36px;
+  }
+  &__costs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &__cost-item {
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+
+    &--total {
+      padding-top: 11px;
+      border-top: 1px solid #676767;
+      margin-top: 11px;
+    }
+  }
+
+  &__param {
+    flex: 1;
+    text-align: start;
+
+    &--total {
+      font-size: 22px;
+      font-weight: 500;
+      word-wrap: break-word;
+    }
+  }
+
+  &__value {
+    flex: 1;
+    text-align: end;
+
+    &--total {
+      font-size: 22px;
+      font-weight: 500;
+      word-wrap: break-word;
+    }
+  }
+
+  &__promo-code {
+    margin: 52px 0px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__form-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__header-button {
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__form-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px
+  }
+
+  &__input {
+    flex: 1;
+    background-color: #2D2D2D;
+    border-radius: 4px;
+    border: 1px #4F4F4F solid;
+    height: 30px;
+    color: white;
+    padding: 0px 8px;
+  }
+
+  &__submit {
+    border-radius: 4px;
+    border: 1px #4F4F4F solid;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    padding: 8px;
+  }
+}
