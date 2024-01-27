@@ -12,6 +12,9 @@ import { DetailBookComponent } from './molecules/detail-book/detail-book.compone
 import { TableComponent } from './organism/table/table.component';
 import { ShoppingDetailComponent } from './templates/shopping-detail/shopping-detail.component';
 import { OrderSummaryComponent } from './organism/order-summary/order-summary.component';
+import { NavbarComponent } from './molecules/navbar/navbar.component';
+import { ShoppingCartComponent } from './atoms/shopping-cart/shopping-cart.component';
+import { ShoppingDetailPageComponent } from './pages/shopping-detail-page/shopping-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { OrderSummaryComponent } from './organism/order-summary/order-summary.co
     DetailBookComponent,
     TableComponent,
     ShoppingDetailComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    NavbarComponent,
+    ShoppingCartComponent,
+    ShoppingDetailPageComponent
   ],
   imports: [
     BrowserModule,

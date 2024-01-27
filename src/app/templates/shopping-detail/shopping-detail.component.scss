@@ -15,7 +15,7 @@
   }
 
   &__summary {
-    width: 360px;
+    width: calc(360px - 42px * 2);
     color: white;
     background-color: var(--black);
     padding: 42px;

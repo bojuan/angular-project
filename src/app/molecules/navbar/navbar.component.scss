@@ -1,0 +1,29 @@
+.navbar {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+  }
+
+  &__list {
+    display: flex;
+    gap: 64px;
+    padding: 0px;
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__anchor {
+    text-decoration: none;
+    color: var(--black);
+  }
+}
