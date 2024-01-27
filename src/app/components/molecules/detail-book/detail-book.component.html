@@ -1,7 +1,12 @@
 <div class="detail-book">
-  <app-book-cover class="detail-book__cover"></app-book-cover>
+  <app-book-cover
+    [thumbnail]="cart.thumbnail"
+    class="detail-book__cover"
+  ></app-book-cover>
   <div class="detail-book__body">
-    <h2 class="detail-book__title">Javascript from Beginner to Professional</h2>
-    <button class="detail-book__remove">Remove</button>
+    <h2 class="detail-book__title">{{ cart.title }}</h2>
+    <button class="detail-book__remove" (click)="handleRemoveClick()">
+      Remove
+    </button>
   </div>
 </div>

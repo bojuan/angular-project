@@ -21,6 +21,8 @@ import { LayoutComponent } from './components/templates/layout/layout.component'
 import { ShoppingListPageComponent } from './components/pages/shopping-list-page/shopping-list-page.component';
 import { ShoppingListComponent } from './components/templates/shopping-list/shopping-list.component';
 import { cartReducer } from './store/cart.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CartEffects } from './store/cart.effects';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { cartReducer } from './store/cart.reducer';
     StoreModule.forRoot({
       cart: cartReducer,
     }),
+    EffectsModule.forRoot([CartEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

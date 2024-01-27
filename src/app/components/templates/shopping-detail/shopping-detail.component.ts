@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Book } from 'src/app/interfaces/book.interfaces';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Cart } from 'src/app/interfaces/cart.interface';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-shopping-detail',
@@ -7,5 +8,19 @@ import { Book } from 'src/app/interfaces/book.interfaces';
   styleUrls: ['./shopping-detail.component.scss'],
 })
 export class ShoppingDetailComponent {
-  @Input() listBooks: Book[] = [];
+  @Input() carts: Cart[] = [];
+
+  constructor(private cartService: CartService) {}
+
+  handleActionCart(arg: {
+    action: 'remove' | 'quantity';
+    value: number | { id: number; quantity: number };
+  }) {
+    if (arg.action === 'remove') {
+      this.cartService.removeCart((arg.value as Cart).id);
+    } else {
+      const { id, quantity } = arg.value as { id: number; quantity: number };
+      this.cartService.updateCart(id, { quantity });
+    }
+  }
 }

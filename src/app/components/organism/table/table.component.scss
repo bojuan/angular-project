@@ -1,13 +1,43 @@
 .table {
+  border-collapse: collapse;
+
+  &__header-container {
+    display: flex;
+  }
+
   &__header {
     width: 152px;
     color: #888888;
     font-size: 14px;
     font-weight: 500;
     word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+
+    &--detail {
+      min-width: 342px;
+    }
   }
 
   &__column {
     text-align: center;
+    min-width: 152px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__row {
+    display: flex;
+    padding: 23px 0px;
+    border-bottom: 1px solid #f0f0f0;
+
+    &--first {
+      padding-top: 0px;
+    }
+
+    &--last {
+      border-bottom: none;
+    }
   }
 }

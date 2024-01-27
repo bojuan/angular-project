@@ -1,6 +1,9 @@
 <div class="shopping-detail">
   <section class="shopping-detail__body">
-    <app-table></app-table>
+    <app-table
+      [carts]="carts"
+      (clickActionCart)="handleActionCart($event)"
+    ></app-table>
     <div class="shopping-detail__return">
       <button class="shopping-detail__container-svg">
         <svg

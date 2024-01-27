@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Cart } from 'src/app/interfaces/cart.interface';
 
 @Component({
   selector: 'app-detail-book',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./detail-book.component.scss']
 })
 export class DetailBookComponent {
+  @Input() cart!: Cart
+  @Output() clickRemove = new EventEmitter()
 
+  handleRemoveClick() {
+    this.clickRemove.emit()
+  }
 }

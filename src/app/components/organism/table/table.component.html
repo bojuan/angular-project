@@ -1,18 +1,36 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th class="table__header">QUANTITY</th>
-      <th class="table__header">PRICE</th>
-      <th class="table__header">TOTAL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="table__column"><app-detail-book></app-detail-book></td>
-      <td class="table__column"><app-quantity></app-quantity></td>
-      <td class="table__column">$36,99</td>
-      <td class="table__column">$36,99</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table">
+  <div class="table__header-container">
+    <div class="table__header table__header--detail"></div>
+    <div class="table__header">QUANTITY</div>
+    <div class="table__header">PRICE</div>
+    <div class="table__header">TOTAL</div>
+  </div>
+  <div>
+    <div
+      *ngFor="let cart of carts; index as i"
+      [ngClass]="{
+      table__row: true,
+      'table__row--first': i === 0,
+      'table__row--last': carts.length - 1 === i,
+
+    }"
+    >
+      <div class="table__column">
+        <app-detail-book
+          [cart]="cart"
+          (clickRemove)="handleRemoveCart(cart)"
+        ></app-detail-book>
+      </div>
+      <div class="table__column">
+        <app-quantity
+          [value]="cart.quantity"
+          (changeQuantity)="
+            handleQuantityCart({ id: cart.id, quantity: $event })
+          "
+        ></app-quantity>
+      </div>
+      <div class="table__column">${{ cart.price }}</div>
+      <div class="table__column">${{ cart.price * cart.quantity }}</div>
+    </div>
+  </div>
+</div>

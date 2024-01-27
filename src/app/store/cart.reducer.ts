@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addCart, removeCart } from './cart.actions';
+import { addCart, removeCart, updateCart } from './cart.actions';
 import { Cart } from '../interfaces/cart.interface';
 
 interface CartStore {
@@ -23,6 +23,22 @@ export const cartReducer = createReducer(
       ...state,
       carts: state.carts.filter((item) => item.id !== action.id),
     };
+    return newState;
+  }),
+  on(updateCart, (state, action) => {
+    const cartsUpdated = state.carts.map((item) => {
+      let newItem = { ...item };
+      if (item.id === action.id) {
+        newItem = { ...newItem, ...action.cart };
+      }
+      return newItem;
+    });
+
+    const newState = {
+      ...state,
+      carts: cartsUpdated,
+    };
+
     return newState;
   })
 );
