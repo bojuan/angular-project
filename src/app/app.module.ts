@@ -16,6 +16,8 @@ import { NavbarComponent } from './components/molecules/navbar/navbar.component'
 import { ShoppingCartComponent } from './components/atoms/shopping-cart/shopping-cart.component';
 import { ShoppingDetailPageComponent } from './components/pages/shopping-detail-page/shopping-detail-page.component';
 import { LayoutComponent } from './components/templates/layout/layout.component';
+import { ShoppingListPageComponent } from './components/pages/shopping-list-page/shopping-list-page.component';
+import { ShoppingListComponent } from './components/templates/shopping-list/shopping-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { LayoutComponent } from './components/templates/layout/layout.component'
     NavbarComponent,
     ShoppingCartComponent,
     ShoppingDetailPageComponent,
-    LayoutComponent
+    LayoutComponent,
+    ShoppingListPageComponent,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule,

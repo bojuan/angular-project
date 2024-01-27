@@ -27,4 +27,9 @@
     align-items: center;
     gap: 16px;
   }
+
+  &__container-svg {
+    border: none;
+    background-color: transparent;
+  }
 }
