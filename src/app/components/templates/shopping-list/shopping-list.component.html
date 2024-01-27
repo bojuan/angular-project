@@ -1,3 +1,7 @@
 <section class="shopping-list">
-  <app-card *ngFor="let item of listBooks" [book]="item"></app-card>
+  <app-card
+    *ngFor="let item of listBooks"
+    [book]="item"
+    (clickCTA)="handleClickBook($event)"
+  ></app-card>
 </section>

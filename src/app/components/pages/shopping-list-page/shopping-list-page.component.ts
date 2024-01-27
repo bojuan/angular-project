@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { map } from 'rxjs';
 import { Book } from 'src/app/interfaces/book.interfaces';
 import { BooksService } from 'src/app/services/books.service';
 import { DEFAULT_ITEMS_NAVBAR } from 'src/app/utils/constants/navbar';
@@ -46,5 +46,9 @@ export class ShoppingListPageComponent implements OnInit {
     const url = this.router.url.split('/')[1];
     this.titlePage =
       DEFAULT_ITEMS_NAVBAR.find((item) => item.route === url)?.label ?? '';
+  }
+
+  handleAddBookToCart(book: Book){
+    console.log("Book CLick -->", book)
   }
 }

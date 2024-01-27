@@ -14,6 +14,11 @@
       {{ book.description }}
     </p>
     <p class="card__author">By {{ book.author }}</p>
-    <app-button [showIcon]="true" [fullContent]="true">ADD TO CART</app-button>
+    <app-button
+      [showIcon]="true"
+      [fullContent]="true"
+      (clickButton)="handleClick()"
+      >ADD TO CART</app-button
+    >
   </div>
 </div>
