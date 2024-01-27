@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { filter, map } from 'rxjs';
+import { Book } from 'src/app/interfaces/book.interfaces';
 import { BooksService } from 'src/app/services/books.service';
 import { DEFAULT_ITEMS_NAVBAR } from 'src/app/utils/constants/navbar';
 
@@ -8,15 +10,41 @@ import { DEFAULT_ITEMS_NAVBAR } from 'src/app/utils/constants/navbar';
   templateUrl: './shopping-list-page.component.html',
   styleUrls: ['./shopping-list-page.component.scss'],
 })
-export class ShoppingListPageComponent {
-  constructor(private router: Router, private bookService: BooksService ) {}
+export class ShoppingListPageComponent implements OnInit {
+  books: Book[] = [];
+  loading: boolean = false;
+  titlePage: string = '';
 
-  get books() {
-    return this.bookService.getBooks()
+  constructor(private router: Router, private bookService: BooksService) {}
+
+  ngOnInit(): void {
+    this.getTitlePage();
+    this.getBooks();
   }
 
-  get getTitlePage() {
+  getBooks() {
+    this.loading = true;
+    this.bookService
+      .getBooks()
+      .pipe(
+        map((books) =>
+          books.filter((book) => {
+            if (this.titlePage === 'All') return true;
+            return book.category === this.titlePage;
+          })
+        )
+      )
+      .subscribe({
+        next: (response) => {
+          this.books = response;
+        },
+        complete: () => (this.loading = false),
+      });
+  }
+
+  getTitlePage() {
     const url = this.router.url.split('/')[1];
-    return DEFAULT_ITEMS_NAVBAR.find((item) => item.route === url)?.label ?? "";
+    this.titlePage =
+      DEFAULT_ITEMS_NAVBAR.find((item) => item.route === url)?.label ?? '';
   }
 }

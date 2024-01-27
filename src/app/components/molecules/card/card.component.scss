@@ -49,9 +49,11 @@
 
   &__description {
     color: var(--text);
+    height: 80px;
     font-size: 16px;
     font-weight: 300;
-    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__author {

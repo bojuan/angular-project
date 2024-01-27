@@ -4,6 +4,7 @@ import { ShoppingDetailPageComponent } from './components/pages/shopping-detail-
 import { ShoppingListPageComponent } from './components/pages/shopping-list-page/shopping-list-page.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/all', pathMatch: 'full' },
   { path: 'all', component: ShoppingListPageComponent },
   { path: 'programming', component: ShoppingListPageComponent },
   { path: 'web-development', component: ShoppingListPageComponent },

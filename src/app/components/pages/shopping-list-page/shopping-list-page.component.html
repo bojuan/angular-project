@@ -1,4 +1,5 @@
 <main class="main">
-  <h1 class="title">{{getTitlePage}} books</h1>
+  <h1 class="title">{{titlePage}} books</h1>
+  <span *ngIf="loading">Cargando...</span>
   <app-shopping-list [listBooks]="books"></app-shopping-list>
 </main>
