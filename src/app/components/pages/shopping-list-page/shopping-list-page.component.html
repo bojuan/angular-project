@@ -3,6 +3,7 @@
   <span *ngIf="loading">Cargando...</span>
   <app-shopping-list
     [listBooks]="books"
+    [listBooksSelected]="carts"
     (clickBook)="handleAddBookToCart($event)"
   ></app-shopping-list>
 </main>

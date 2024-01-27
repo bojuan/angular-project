@@ -16,9 +16,11 @@
     <p class="card__author">By {{ book.author }}</p>
     <app-button
       [showIcon]="true"
+      [variant]="isSelected ? 'secondary' : 'primary'"
+      [showIcon]="!isSelected"
       [fullContent]="true"
       (clickButton)="handleClick()"
-      >ADD TO CART</app-button
+      >{{ isSelected ? "REMOVE TO CART" : "ADD TO CART" }}</app-button
     >
   </div>
 </div>

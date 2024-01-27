@@ -8,6 +8,7 @@ import { Book } from 'src/app/interfaces/book.interfaces';
 })
 export class CardComponent {
   @Input() book!: Book;
+  @Input() isSelected: boolean = false
   @Output() clickCTA = new EventEmitter<Book>();
 
   handleClick() {

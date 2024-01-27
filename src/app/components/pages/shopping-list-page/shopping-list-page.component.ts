@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, map, tap } from 'rxjs';
 import { Book } from 'src/app/interfaces/book.interfaces';
+import { CartStore } from 'src/app/interfaces/cart.interface';
 import { BooksService } from 'src/app/services/books.service';
+import { CartService } from 'src/app/services/cart.service';
+import { addCart, removeCart } from 'src/app/store/cart.actions';
+import { selectCarts } from 'src/app/store/cart.selectors';
 import { DEFAULT_ITEMS_NAVBAR } from 'src/app/utils/constants/navbar';
 
 @Component({
@@ -15,7 +20,11 @@ export class ShoppingListPageComponent implements OnInit {
   loading: boolean = false;
   titlePage: string = '';
 
-  constructor(private router: Router, private bookService: BooksService) {}
+  constructor(
+    private router: Router,
+    private bookService: BooksService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.getTitlePage();
@@ -39,6 +48,7 @@ export class ShoppingListPageComponent implements OnInit {
           this.books = response;
         },
         complete: () => (this.loading = false),
+        error: () => (this.loading = false),
       });
   }
 
@@ -48,7 +58,19 @@ export class ShoppingListPageComponent implements OnInit {
       DEFAULT_ITEMS_NAVBAR.find((item) => item.route === url)?.label ?? '';
   }
 
-  handleAddBookToCart(book: Book){
-    console.log("Book CLick -->", book)
+  handleAddBookToCart(book: Book) {
+    const existCart = this.cartService.carts.find(
+      (item) => item.id === book.id
+    );
+
+    if (existCart) {
+      this.cartService.removeCart(book.id);
+    } else {
+      this.cartService.addCart({ ...book, quantity: 1 });
+    }
+  }
+
+  get carts() {
+    return this.cartService.carts;
   }
 }

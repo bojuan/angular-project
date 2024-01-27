@@ -5,6 +5,7 @@
   border-radius: 8px;
   min-width: 150px;
   height: 40px;
+  transition: all 0.4s ease;
 
   &__container {
     display: flex;
@@ -34,6 +35,10 @@
   &--secondary {
     color: var(--black);
     background-color: white;
+
+    :hover {
+      background-color: #f0f0f0;
+    }
   }
 
   &--full {

@@ -1,6 +1,7 @@
 <section class="shopping-list">
   <app-card
     *ngFor="let item of listBooks"
+    [isSelected]="verifyIsSelected(item)"
     [book]="item"
     (clickCTA)="handleClickBook($event)"
   ></app-card>
