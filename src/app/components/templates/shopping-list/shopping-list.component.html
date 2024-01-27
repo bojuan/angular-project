@@ -1,6 +1,3 @@
 <section class="shopping-list">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+  <app-card *ngFor="let item of listBooks" [book]="item"></app-card>
 </section>

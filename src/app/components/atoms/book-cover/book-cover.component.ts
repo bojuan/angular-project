@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-book-cover',
   templateUrl: './book-cover.component.html',
-  styleUrls: ['./book-cover.component.scss']
+  styleUrls: ['./book-cover.component.scss'],
 })
 export class BookCoverComponent {
-
+  @Input() thumbnail!: string;
 }

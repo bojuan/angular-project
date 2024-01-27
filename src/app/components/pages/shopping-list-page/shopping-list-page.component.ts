@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BooksService } from 'src/app/services/books.service';
 import { DEFAULT_ITEMS_NAVBAR } from 'src/app/utils/constants/navbar';
 
 @Component({
@@ -8,7 +9,11 @@ import { DEFAULT_ITEMS_NAVBAR } from 'src/app/utils/constants/navbar';
   styleUrls: ['./shopping-list-page.component.scss'],
 })
 export class ShoppingListPageComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private bookService: BooksService ) {}
+
+  get books() {
+    return this.bookService.getBooks()
+  }
 
   get getTitlePage() {
     const url = this.router.url.split('/')[1];
