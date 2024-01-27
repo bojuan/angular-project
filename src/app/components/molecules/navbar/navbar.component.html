@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="navbar__container">
+    <ul class="navbar__list">
+      <li class="navbar__item" *ngFor="let item of items">
+        <a [routerLink]="item.route" class="navbar__anchor">{{ item.label }}</a>
+      </li>
+    </ul>
+    <app-shopping-cart
+      [count]="countCart"
+      (clickCart)="handleClick()"
+    ></app-shopping-cart>
+  </div>
+</nav>

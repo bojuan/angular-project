@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ShoppingCartComponent {
   @Input() count: number = 0
+
+  @Output() clickCart = new EventEmitter<number>()
+
+  handleClick() {
+    this.clickCart.emit(this.count)
+  }
 }
