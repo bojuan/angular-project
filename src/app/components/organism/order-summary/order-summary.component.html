@@ -4,15 +4,18 @@
     <div class="order-summary__costs">
       <div class="order-summary__cost-item">
         <span class="order-summary__param">Subtotal</span>
-        <span class="order-summary__value">$ 110.97</span>
+        <span class="order-summary__value">$ {{subtotal}}</span>
       </div>
       <div class="order-summary__cost-item">
         <span class="order-summary__param">Shipping</span>
-        <span class="order-summary__value">$ 110.97</span>
+        <span class="order-summary__value">$ {{shipping}}</span>
       </div>
-      <div class="order-summary__cost-item">
-        <span class="order-summary__param">Code OFF5</span>
-        <span class="order-summary__value">$ 110.97</span>
+      <div *ngFor="let code of codes">
+        <div class="order-summary__cost-item" *ngIf="code.isValid">
+          <span class="order-summary__param">Code {{code.code}}</span>
+          <span class="order-summary__value">- $ {{code.value}}</span>
+        </div>
+       
       </div>
     </div>
     <div class="order-summary__cost-item order-summary__cost-item--total">
@@ -20,7 +23,7 @@
         >Order total</span
       >
       <span class="order-summary__value order-summary__value--total"
-        >$ 110.97</span
+        >$ {{total}}</span
       >
     </div>
   </div>
@@ -45,8 +48,8 @@
           </svg>
         </button>
       </div>
-      <div class="order-summary__form-input">
-        <input class="order-summary__input" type="text" />
+      <div class="order-summary__form-input" *ngFor="let code of codes">
+        <input class="order-summary__input" type="text" value="code"/>
         <button class="order-summary__submit">APPLY</button>
       </div>
     </form>

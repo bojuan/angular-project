@@ -8,13 +8,4 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./shopping-detail-page.component.scss'],
 })
 export class ShoppingDetailPageComponent {
-  constructor(private cartService: CartService) {}
-
-  get carts() {
-    return this.cartService.carts;
-  }
-
-  handleRemoveCart(cart: Cart) {
-    this.cartService.removeCart(cart.id);
-  }
 }

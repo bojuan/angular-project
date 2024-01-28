@@ -8,7 +8,6 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./shopping-detail.component.scss'],
 })
 export class ShoppingDetailComponent {
-  @Input() carts: Cart[] = [];
 
   constructor(private cartService: CartService) {}
 
@@ -22,5 +21,9 @@ export class ShoppingDetailComponent {
       const { id, quantity } = arg.value as { id: number; quantity: number };
       this.cartService.updateCart(id, { quantity });
     }
+  }
+
+  get carts() {
+    return this.cartService.carts
   }
 }
