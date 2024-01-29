@@ -4,18 +4,17 @@
     <div class="order-summary__costs">
       <div class="order-summary__cost-item">
         <span class="order-summary__param">Subtotal</span>
-        <span class="order-summary__value">$ {{subtotal}}</span>
+        <span class="order-summary__value">$ {{ subtotal }}</span>
       </div>
       <div class="order-summary__cost-item">
         <span class="order-summary__param">Shipping</span>
-        <span class="order-summary__value">$ {{shipping}}</span>
+        <span class="order-summary__value">$ {{ shipping }}</span>
       </div>
       <div *ngFor="let code of codes">
         <div class="order-summary__cost-item" *ngIf="code.isValid">
-          <span class="order-summary__param">Code {{code.code}}</span>
-          <span class="order-summary__value">- $ {{code.value}}</span>
+          <span class="order-summary__param">Code {{ code.code }}</span>
+          <span class="order-summary__value">- $ {{ code.value }}</span>
         </div>
-       
       </div>
     </div>
     <div class="order-summary__cost-item order-summary__cost-item--total">
@@ -23,15 +22,18 @@
         >Order total</span
       >
       <span class="order-summary__value order-summary__value--total"
-        >$ {{total}}</span
+        >$ {{ total }}</span
       >
     </div>
   </div>
   <div class="order-summary__promo-code">
-    <form class="order-summary__form">
+    <form class="order-summary__form" [formGroup]="myForm">
       <div class="order-summary__form-header">
         <span class="order-summary__header-label">Promo Code</span>
-        <button class="order-summary__header-button">
+        <button
+          class="order-summary__header-button"
+          (click)="addDynamicInput()"
+        >
           <svg
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -48,9 +50,35 @@
           </svg>
         </button>
       </div>
-      <div class="order-summary__form-input" *ngFor="let code of codes">
-        <input class="order-summary__input" type="text" value="code"/>
-        <button class="order-summary__submit">APPLY</button>
+      <div
+        formArrayName="cuponCodes"
+        class="order-summary__form-input-container"
+      >
+        <div
+          *ngFor="let inputItem of cuponCodesForm.controls; let i = index"
+          [formGroupName]="i"
+          class="order-summary__form-input"
+        >
+          <div class="order-summary__input-container">
+            <input
+              formControlName="code"
+              [ngClass]="{
+                'order-summary__input': true,
+                'order-summary__input--error': !inputItem.getRawValue().isValid
+              }"
+              type="text"
+            />
+            <span
+              *ngIf="!inputItem.getRawValue().isValid"
+              class="order-summary__input-message"
+              >Invalid Code</span
+            >
+          </div>
+
+          <button class="order-summary__submit" (click)="handleSubmitCupon(i)">
+            {{ inputItem?.getRawValue()?.isApplied ? "REMOVE" : "APPLY" }}
+          </button>
+        </div>
       </div>
     </form>
   </div>

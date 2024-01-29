@@ -4,16 +4,26 @@ import { Cart, CartStore } from '../interfaces/cart.interface';
 import { selectCarts } from '../store/cart.selectors';
 import { addCart, removeCart, updateCart } from '../store/cart.actions';
 import { CARTS } from '../utils/constants/mock-data';
+import { CuponCodes } from '../interfaces/order.interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   carts: Cart[] = CARTS;
+  private validCodes = [
+    { code: 'ASD2D45', value: 5 },
+    { code: 'BS23D4M', value: 10 },
+  ];
   constructor(private store: Store<{ cart: CartStore }>) {
     store.select(selectCarts).subscribe((carts) => {
       this.carts = carts;
     });
+  }
+
+  verifyCodes(code: CuponCodes) {
+    const cuponFound = this.validCodes.find((item) => item.code === code.code);
+    return { isValid: !!cuponFound, value: cuponFound?.value ?? 0 };
   }
 
   removeCart(id: number) {
@@ -25,7 +35,7 @@ export class CartService {
   }
 
   updateCart(id: number, cart: Partial<Cart>) {
-    console.log("updateCart -->", updateCart)
+    console.log('updateCart -->', updateCart);
     this.store.dispatch(updateCart({ id, cart }));
   }
 }

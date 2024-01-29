@@ -24,6 +24,10 @@
     </div>
   </section>
   <section class="shopping-detail__summary">
-    <app-order-summary></app-order-summary>
+    <app-order-summary
+      [subtotal]="subtotal"
+      [codes]="codes"
+      (changeCode)="handleChangeCodes($event)"
+    ></app-order-summary>
   </section>
 </div>

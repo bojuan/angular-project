@@ -1,13 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
 import { addCart, removeCart, updateCart } from './cart.actions';
 import { Cart } from '../interfaces/cart.interface';
+import { CuponCodes } from '../interfaces/order.interfaces';
 
 interface CartStore {
   carts: Cart[];
+  cuponCodes: CuponCodes[]
 }
 
 const initialState: CartStore = {
   carts: [],
+  cuponCodes: []
 };
 
 export const cartReducer = createReducer(
